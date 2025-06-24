@@ -1,0 +1,11 @@
+[versions]
+
+jackson = "2.19.1"
+
+[libraries]
+
+jackson-core = { module = "com.fasterxml.jackson.core:jackson-core", version.ref = "jackson" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+
+lwjgl = { module = "org.lwjgl:lwjgl", version = "3.0.0b" }
+lwjgl-platform = { module = "org.lwjgl:lwjgl-platform", version = "3.0.0b" }

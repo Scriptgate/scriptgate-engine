@@ -1,0 +1,10 @@
+dependencies {
+    implementation project(':engine-api')
+    implementation project(':engine-lwjgl')
+}
+
+tasks.register('demo', JavaExec) {
+    group = 'application'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass.set 'example.Example'
+}

@@ -1,0 +1,4 @@
+include ':engine-api'
+include ':engine-core'
+include ':engine-lwjgl'
+include ':engine-demo'

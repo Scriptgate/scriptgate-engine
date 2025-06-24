@@ -1,0 +1,28 @@
+---
+name: Publish Artifacts
+
+env:
+  JAVA_VERSION: 21
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-artifacts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.CHECKOUT_PAT }}
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{  env.JAVA_VERSION }}
+          distribution: 'temurin'
+      - name: Build
+        run: ./gradlew build
+      - name: Publish
+        run: ./gradlew publish -PGITHUB_USERNAME=Scriptgate -PGITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}

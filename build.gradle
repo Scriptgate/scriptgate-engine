@@ -1,0 +1,34 @@
+
+allprojects {
+    group 'net.scriptgate.engine'
+    version '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    pluginManager.withPlugin('maven-publish') {
+        publishing {
+            repositories {
+                maven {
+                    name = 'GithubPackages'
+                    url = 'https://maven.pkg.github.com/scriptgate-engine'
+                    credentials {
+                        username = providers.gradleProperty('GITHUB_USERNAME').getOrNull()
+                        password = providers.gradleProperty('GITHUB_TOKEN').getOrNull()
+                    }
+                }
+            }
+            publications {
+                maven(MavenPublication) {
+                    from components.java
+                }
+            }
+        }
+
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+}
