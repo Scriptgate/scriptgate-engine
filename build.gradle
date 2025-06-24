@@ -1,7 +1,7 @@
 
 allprojects {
-    group 'net.scriptgate.engine'
-    version '0.0.1-SNAPSHOT'
+    group = 'net.scriptgate.engine'
+    version = '1.0.0'
 
     repositories {
         mavenCentral()
@@ -12,7 +12,7 @@ allprojects {
             repositories {
                 maven {
                     name = 'GithubPackages'
-                    url = 'https://maven.pkg.github.com/scriptgate-engine'
+                    url = 'https://maven.pkg.github.com/Scriptgate/scriptgate-engine'
                     credentials {
                         username = providers.gradleProperty('GITHUB_USERNAME').getOrNull()
                         password = providers.gradleProperty('GITHUB_TOKEN').getOrNull()
